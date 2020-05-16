@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchGitService } from 'src/app/search.service';
 
 @Component({
   selector: 'app-results',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultsComponent implements OnInit {
 
-  constructor() { }
+  repos:Repository[];
+  user:User;
+  username:string;  
 
-  ngOnInit(): void {
+  constructor( private route: ActivatedRoute, private searchGitService: SearchGitService ) {}
+
+  searchResult(){
+    this.username = this.route.snapshot.paramMap.get('username')
+    this.searchGitService.userRequest(this.username)
+    this.user = this.searchGitService.user
+    this.searchGitService.repoRequest(this.username)
+    this.repos =this.searchGitService.repos
   }
 
+  ngOnInit(){
+    this.searchResult()
+  }
 }
+

@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+import {Router } from '@angular/router';
+import{SearchService} from '../../search.service';
+import {Repository} from '../../classes/repository'
+import {User} from '../../classes/user';
+import {ResultsComponent} from '../results/results.component'
+
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -7,9 +13,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+  username:string;
+  user:User;
+  repos:Repository[];
+  searchResult: SearchService;
+  userTest:string;
 
-  ngOnInit(): void {
+  constructor( private router: Router, private searchGitService: SearchService ) { }
+  
+  findProfile(){
+    this.router.navigate(['/search-result',this.username]);
+    this.searchGitService.userRequest(this.username)
+    this.user = this.searchGitService.user
+    this.searchGitService.repoRequest(this.username)
+    this.repos =this.searchGitService.repos
+  }
+  ngOnInit(){
   }
 
 }
