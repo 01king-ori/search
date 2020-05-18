@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchGitService } from 'src/app/search.service';
+import { Repository } from '../../classes/repository';
+import { User } from '../../classes/user';
+import {Result} from '../result';
+import {ActivatedRoute,Router} from '@angular/router';
 
 @Component({
   selector: 'app-results',

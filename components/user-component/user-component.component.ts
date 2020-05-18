@@ -10,8 +10,8 @@ import {Repository} from '../../classes/repository'
 })
 export class UserComponentComponent implements OnInit {
 
-  repos:Repositories[];
-  user:Users;
+  repos:Repository[];
+  user:User;
 
   constructor(private searchGitService: SearchService, private http:HttpClient) {}
 

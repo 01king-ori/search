@@ -9,6 +9,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { ResultsComponent } from './components/results/results.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { PipePipe } from './pipe.pipe';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PipePipe } from './pipe.pipe';
     ErrorComponent,
     ResultsComponent,
     NavBarComponent,
-    PipePipe
+    PipePipe,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,

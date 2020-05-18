@@ -1,6 +1,6 @@
 export class User {
-    onstructor(
-        public name:string,
+    constructor(
+public name:string,
         public login:string,
         public bio:string,
         public url: string,
